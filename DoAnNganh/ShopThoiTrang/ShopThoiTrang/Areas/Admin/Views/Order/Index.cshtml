@@ -1,0 +1,55 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ShopThoiTrang.Models.Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Models/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Danh sách đơn hàng</h6>                
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                    
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã đơn hàng</th>
+                                            <th>Ngày đặt hàng</th>
+                                            <th>Tên người đặt</th>
+                                            <th>Tổng tiền</th>
+                                            <th>Tình trạng</th>
+                                            <th>Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@item.OrderId</td>
+                                            <td>@item.OrderDate.ToString("dd/MM/yyyy")</td>
+                                            @foreach(var user in ViewBag.user)
+                                            {
+                                                if(user.CustomerId==item.CustomerId)
+                                {
+                                     <td>@user.FullName</td>
+                                }
+
+                        }
+                                            <td>@((item.Temp+@item.Ship).ToString("#,##0 VND"))</td>
+                                           <td>@(item.Active?"Đã xác nhận":"Chưa xác nhận")</td>
+                                            
+                                            
+                                            <td>                                               
+                                            <a asp-action="XoaDonHang" asp-route-Pid=@item.OrderId style="display: inline-block; padding: 10px 20px; text-decoration: none; font-weight: bold; cursor: pointer; color: white; background-color: #e74a3b;">Xóa</a>
+                                            </td>
+                                        </tr>
+                                        }
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+

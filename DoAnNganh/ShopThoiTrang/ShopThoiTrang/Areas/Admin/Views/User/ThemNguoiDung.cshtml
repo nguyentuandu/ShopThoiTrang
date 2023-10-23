@@ -1,0 +1,76 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model ShopThoiTrang.Models.User1
+@{
+    ViewData["Title"] = "ThemNguoiDung";
+    Layout = "~/Areas/Admin/Models/Shared/_LayoutAdmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop bán hàng NetaShop</title>
+
+    <!-- Liên kết CSS Bootstrap bằng CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!-- Main content -->
+   
+        <h1>Thêm Người Dùng</h1>
+
+        <form name="frmCreate" method="post" asp-action="ThemNguoiDung" class="form">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table class="table">
+                
+                <tr>
+                    <td>Tên người dùng</td>
+                    <td><input asp-for="FullName"  class="form-control" /></td>
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </tr>
+                 <tr>
+                    <td>Số điện thoại</td>
+                    <td><input asp-for="PhoneNumber"  class="form-control" /></td>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </tr>
+                 
+                 <tr>
+                    <td>Email</td>
+                   <td><input asp-for="Email"  class="form-control" /></td>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </tr>
+               
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" asp-for="PassWord"  class="form-control" /></td>
+                    <span asp-validation-for="PassWord" class="text-danger"></span>
+                    
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button name="btnSave" class="btn btn-primary"><i class="fas fa-save"></i> Thêm</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+   
+
+    <!-- Liên kết JS Jquery bằng CDN -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <!-- Liên kết JS Popper bằng CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <!-- Liên kết JS Bootstrap bằng CDN -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Liên kết JS FontAwesome bằng CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+</body>
+
+</html>
+

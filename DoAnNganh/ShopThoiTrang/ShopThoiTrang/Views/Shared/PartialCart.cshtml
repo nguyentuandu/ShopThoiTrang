@@ -1,0 +1,39 @@
+﻿ @section scripts{
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $(document).ready(function()
+            {
+                $(".ajax-add-to-cart").click(function()
+                {
+                    $.ajax({
+                        url:"/Cart/AddToCart",
+                        data:{
+                            id:$(this).data("id"),
+                            SoLuong:1,
+                            type: "ajax"
+                        },
+                        success: function(data){
+                            console.log(data);
+                            Swal.fire({
+                              position: 'top-end',
+                              icon: 'success',
+                              title: 'Thêm giỏ hàng thành công',
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
+                            $("#cart_count").html(data.soLuong);
+                        },
+                        error:function(){
+                            Swal.fire({
+                              icon: 'error',
+                              title: 'Thêm giỏ hàng thất bại',
+                              text: 'Vui lòng thử lại',
+                              showConfirmButton: false,
+                              timer: 1500
+                            });
+                        }
+                    });
+                });
+            });
+        </script>
+    }

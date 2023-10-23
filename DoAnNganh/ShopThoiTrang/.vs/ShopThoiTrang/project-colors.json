@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "13c29ff9-ec22-417c-a2b8-0dcae78229ad": {
+      "ProjectGuid": "13c29ff9-ec22-417c-a2b8-0dcae78229ad",
+      "DisplayName": "ShopThoiTrang",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}

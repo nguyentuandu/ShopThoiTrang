@@ -1,0 +1,53 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<ShopThoiTrang.Models.Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Models/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Danh sách sản phẩm</h6>
+                             <a href="../admin/ThemSanPhamMoi" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Thêm mới
+        </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                    
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã sản phẩm</th>
+                                            <th>Tên sản phẩm</th>
+                                            <th>Giá</th>
+                                            <th>Tình trạng</th>
+                                            <th>Loại sản phẩm</th>
+                                            <th>Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach(var item in Model)
+                                        {
+                                        <tr>
+                                            <td>@item.ProductId</td>
+                                            <td>@item.ProductName</td>
+                                            <td>@item.UnitPrice.ToString("#,##0 VND")</td>
+                                           <td>@(item.Active.HasValue && item.Active.Value ? "Còn bán" : "Ngừng bán")</td>
+                                            <td>@item.CategoryId</td>
+                                            
+                                            <td>                                               
+                                            
+                                            <a   asp-action="SuaSanPham"  asp-route-Pid=@item.ProductId style="display: inline-block; padding: 10px 20px; margin-right: 10px; text-decoration: none; font-weight: bold; cursor: pointer; color: white; background-color: #f6c23e;">Sửa</a>
+                                            <a href="#" style="display: inline-block; padding: 10px 20px; margin-right: 10px; text-decoration: none; font-weight: bold; cursor: pointer; color: white; background-color: #1cc88a;">Chi Tiết</a>
+                                            <a asp-action="XoaSanPham"  asp-route-Pid=@item.ProductId  style="display: inline-block; padding: 10px 20px; text-decoration: none; font-weight: bold; cursor: pointer; color: white; background-color: #e74a3b;">Xóa</a>
+                                            </td>
+                                        </tr>
+                                        }
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
